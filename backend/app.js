@@ -10,6 +10,16 @@ const app = express();
 
 app.use(bodyParser.json());
 
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  res.setHeader('Access-Allow-Control-Methods','GET, POST, PATCH, DELETE')
+  next();
+});
+
 app.use("/api/places", placesRoutes); // => /api/places/...
 app.use("/api/users", userRoutes);
 
@@ -28,10 +38,12 @@ app.use((error, req, res, next) => {
 });
 
 mongoose
-    .connect('mongodb+srv://GaganDash:Gagan002@cluster0.oj6bq.mongodb.net/mern?retryWrites=true&w=majority&appName=Cluster0')
-    .then(() => {
-        app.listen(5000);
-    })
-    .catch(error => {
-        console.log(error)
-    });
+  .connect(
+    "mongodb+srv://GaganDash:Gagan002@cluster0.oj6bq.mongodb.net/mern?retryWrites=true&w=majority&appName=Cluster0"
+  )
+  .then(() => {
+    app.listen(5000);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
