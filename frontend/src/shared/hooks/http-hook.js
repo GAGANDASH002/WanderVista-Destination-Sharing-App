@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useCallback, useRef, useEffect } from 'react';
 
 export const useHttpClient = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -7,22 +7,23 @@ export const useHttpClient = () => {
   const activeHttpRequests = useRef([]);
 
   const sendRequest = useCallback(
-    async (url, method = "GET", body = null, headers = {}) => {
+    async (url, method = 'GET', body = null, headers = {}) => {
       setIsLoading(true);
-      const httpAbortCtrll = new AbortController();
-      activeHttpRequests.current.push(httpAbortCtrll);
+      const httpAbortCtrl = new AbortController();
+      activeHttpRequests.current.push(httpAbortCtrl);
+
       try {
         const response = await fetch(url, {
           method,
           body,
           headers,
-          signal: httpAbortCtrll.signal,
+          signal: httpAbortCtrl.signal
         });
 
         const responseData = await response.json();
 
         activeHttpRequests.current = activeHttpRequests.current.filter(
-          (reqCtrl) => reqCtrl !== httpAbortCtrll
+          reqCtrl => reqCtrl !== httpAbortCtrl
         );
 
         if (!response.ok) {
@@ -32,9 +33,11 @@ export const useHttpClient = () => {
         setIsLoading(false);
         return responseData;
       } catch (err) {
-        setError(err.message);
-        setIsLoading(false);
-        throw err;
+        if (err.name !== 'AbortError') {
+          setError(err.message);
+          setIsLoading(false);
+          throw err;
+        }
       }
     },
     []
@@ -46,7 +49,7 @@ export const useHttpClient = () => {
 
   useEffect(() => {
     return () => {
-      activeHttpRequests.current.forEach((abortCtrl) => abortCtrl.abort());
+      activeHttpRequests.current.forEach(abortCtrl => abortCtrl.abort());
     };
   }, []);
 
