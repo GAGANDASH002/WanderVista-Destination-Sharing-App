@@ -1,9 +1,50 @@
 .card {
-    margin: 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-    border-radius: 6px;
-    padding: 1rem;
-    overflow: hidden;
-    background: white;
-  }
-  
+  margin: 1.5rem; /* Slightly larger margin for spacing */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); /* Increase shadow for depth */
+  border-radius: 12px; /* Smooth, rounded corners */
+  padding: 2rem; /* Increased padding for better content spacing */
+  overflow: hidden;
+  background-color: #f9f9f9; /* Light grey background for subtle contrast */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Added transition for background color */
+}
+
+.card:hover {
+  transform: translateY(-10px); /* More lift on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 2); /* Enhanced shadow on hover */
+  background-color: #ffffff; /* Change background to white on hover for a clean effect */
+}
+
+.card-header {
+  font-size: 1.8rem; /* Larger font size for the header */
+  font-weight: 700; /* Bold font */
+  color: #4a90e2; /* Primary blue color for the header text */
+  margin-bottom: 1.2rem; /* Increased spacing below header */
+  border-bottom: 2px solid #4a90e2; /* Add a blue border below the header */
+  padding-bottom: 0.5rem; /* Add padding to the bottom of the header */
+}
+
+.card-content {
+  font-size: 1.1rem; /* Slightly larger content font */
+  line-height: 1.8; /* Better line height for readability */
+  color: #555555; /* Darker grey for better contrast */
+}
+
+.card-footer {
+  margin-top: 1.5rem; /* Space above the footer */
+  text-align: right; /* Align footer content to the right */
+}
+
+.card-footer button {
+  background-color: #4a90e2; /* Primary blue color for buttons */
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.card-footer button:hover {
+  background-color: #357ab7; /* Darker blue on hover */
+}

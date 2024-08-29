@@ -21,14 +21,17 @@
     padding: 0.5rem;
   }
   
-  .nav-links a:hover,
+ 
   .nav-links a:active,
   .nav-links a.active {
     background: #f8df00;
     border-color: #292929;
     color: #292929;
+    border-radius: 15px;
   }
-  
+  .nav-links a:hover{
+    color: black;
+  }
   .nav-links button {
     cursor: pointer;
     border: 1px solid #292929;
