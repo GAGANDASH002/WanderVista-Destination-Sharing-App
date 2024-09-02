@@ -1,14 +1,5 @@
-.map{
-    height: 100%;
+.map {
     width: 100%;
-}
-
-.marker {
-    width: 45px;
-    height: 45px;
-    background-image: url('../../../../assets/285659_marker_map_icon.png'); /* Update the path to your marker icon */
-    background-size: cover;
-    position: absolute;
-    transform: translate(-50%, -100%); /* Position the marker properly */
+    height: 100%;
   }
   
