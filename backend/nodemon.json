@@ -1,0 +1,9 @@
+{
+    "env": {
+        "DB_USER": "GaganDash",
+        "DB_PASSWORD": "Gagan002",
+        "DB_NAME": "mern",
+        "GOOGLE_API_KEY": "AIzaSyAJsPQEoiBLleG8wAPJ6qXYkOzzgBmVg5s",
+        "JWT_KEY" : "supersecret_dont_share"
+    }
+}
