@@ -22,5 +22,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Environment variable files
 .env
-.env.production  
+.env.production
