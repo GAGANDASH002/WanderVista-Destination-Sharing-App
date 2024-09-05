@@ -2,8 +2,8 @@
     margin: 1rem 0;
   }
   
-  .place-item__content {
-    padding: 0;
+  .card.place-item__content {
+    padding: 0 !important ;
   }
   
   .place-item__info {
